@@ -802,13 +802,13 @@ with st.sidebar:
 # ════════════════════════════════════════════════════════════
 # Map selected page to a short display title
 page_titles = {
-    "### OVERVIEW":                  ("WATER PREDICTION SYSTEM", "Real-time Prediction"),
-    "###  CONTAMINATION PREDICTOR":   ("Contamination Predictor", "WHO threshold analysis · Chemical & biological readings"),
-    "###  QUEUE TIME FORECASTER":     ("QUEUE TIME FORECASTER", "Wait-time prediction at water collection points"),
-    "###  CRIME RISK SCORER":         ("Crime Risk Scorer", "Risk assessment at water collection points"),
-    "###  MODEL PERFOMANCE":         ("Model Performance", "Detailed accuracy and error metrics for all 3 models"),
-    "###  CONFUSION MATRICES":        ("Confusion Matrices", "Visual breakdown of predictions and feature importance"),
-    "###  AUDIT LOG":                 ("Audit Log", "Chronological record of all predictions this session"),
+    " OVERVIEW":                  ("WATER PREDICTION SYSTEM", "Real-time Prediction"),
+    "  CONTAMINATION PREDICTOR":   ("Contamination Predictor", "WHO threshold analysis · Chemical & biological readings"),
+    "  QUEUE TIME FORECASTER":     ("QUEUE TIME FORECASTER", "Wait-time prediction at water collection points"),
+    "  CRIME RISK SCORER":         ("Crime Risk Scorer", "Risk assessment at water collection points"),
+    " MODEL PERFOMANCE":         ("Model Performance", "Detailed accuracy and error metrics for all 3 models"),
+    "  CONFUSION MATRICES":        ("Confusion Matrices", "Visual breakdown of predictions and feature importance"),
+    "  AUDIT LOG":                 ("Audit Log", "Chronological record of all predictions this session"),
 }
 pg_title, pg_sub = page_titles.get(selected_page, ("MIWAF", ""))
 
@@ -835,7 +835,7 @@ st.markdown(f"""
 # ════════════════════════════════════════════════════════════
 
 # ── PAGE: OVERVIEW ───────────────────────────────────────────
-if selected_page == "### OVERVIEW":
+if selected_page == " OVERVIEW":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -947,7 +947,7 @@ if selected_page == "### OVERVIEW":
 
 
 # ── PAGE: CONTAMINATION ───────────────────────────────────────
-elif selected_page == "###  CONTAMINATION PREDICTOR":
+elif selected_page == "  CONTAMINATION PREDICTOR":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -1064,7 +1064,7 @@ elif selected_page == "###  CONTAMINATION PREDICTOR":
 
 
 # ── PAGE: QUEUE TIME ──────────────────────────────────────────
-elif selected_page == "###  QUEUE TIME FORECASTER":
+elif selected_page == "  QUEUE TIME FORECASTER":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -1187,7 +1187,7 @@ elif selected_page == "###  QUEUE TIME FORECASTER":
 
 
 # ── PAGE: CRIME RISK ──────────────────────────────────────────
-elif selected_page == "###  CRIME RISK SCORER":
+elif selected_page == "  CRIME RISK SCORER":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -1320,7 +1320,7 @@ elif selected_page == "###  CRIME RISK SCORER":
 
 
 # ── PAGE: MODEL PERFORMANCE ───────────────────────────────────
-elif selected_page == "###  MODEL PERFORMANCE":
+elif selected_page == "  MODEL PERFORMANCE":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -1396,7 +1396,7 @@ elif selected_page == "###  MODEL PERFORMANCE":
 
 
 # ── PAGE: CONFUSION MATRICES ──────────────────────────────────
-elif selected_page == "###  CONFUSION MATRICES":
+elif selected_page == "  CONFUSION MATRICES":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
@@ -1454,7 +1454,7 @@ elif selected_page == "###  CONFUSION MATRICES":
 
 
 # ── PAGE: AUDIT LOG ───────────────────────────────────────────
-elif selected_page == "###  AUDIT LOG":
+elif selected_page == "  AUDIT LOG":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
