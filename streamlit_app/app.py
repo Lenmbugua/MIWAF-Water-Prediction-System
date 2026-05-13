@@ -775,7 +775,7 @@ with st.sidebar:
     <div class="sb-brand">
       <span class="sb-brand-ic">🌊</span>
       <div class="sb-brand-name">MIWAF</div>
-      <div class="sb-brand-sub">WATER PREDICTION SYSTEM</div>
+      <div class="sb-brand-sub">WATER CRISIS PREDICTION SYSTEM</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -820,7 +820,7 @@ with st.sidebar:
 # ════════════════════════════════════════════════════════════
 # Map selected page to a short display title
 page_titles = {
-    " OVERVIEW":                  ("WATER PREDICTION SYSTEM", "Real-time Prediction"),
+    " OVERVIEW":                  ("WATER CRISIS PREDICTION SYSTEM", "Real-time Prediction"),
     "  CONTAMINATION PREDICTOR":   ("Contamination Predictor", "WHO threshold analysis · Chemical & biological readings"),
     "  QUEUE TIME FORECASTER":     ("QUEUE TIME FORECASTER", "Wait-time prediction at water collection points"),
     "  CRIME RISK SCORER":         ("Crime Risk Scorer", "Risk assessment at water collection points"),
