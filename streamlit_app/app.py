@@ -763,13 +763,13 @@ with st.sidebar:
 
     # ── MAIN NAVIGATION ──────────────────────────────────────
     nav_options = [
-        "### OVERVIEW",
-        "###  CONTAMINATION PREDICTOR",
-        "###  QUEUE TIME FORECASTER",
-        "###  CRIME RISK SCORER",
-        "###  MODEL PERFORMANCE",
-        "###  CONFUSION MATRICES",
-        "###  AUDIT LOG",
+        " OVERVIEW",
+        "  CONTAMINATION PREDICTOR",
+        "  QUEUE TIME FORECASTER",
+        "  CRIME RISK SCORER",
+        "  MODEL PERFORMANCE",
+        "  CONFUSION MATRICES",
+        "  AUDIT LOG",
     ]
 
     selected_page = st.radio(
