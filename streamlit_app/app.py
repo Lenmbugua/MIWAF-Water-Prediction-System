@@ -1362,7 +1362,7 @@ elif selected_page == "  MODEL PERFORMANCE":
       <tbody>
         <tr><td>Logistic Regression</td><td>100.00%</td><td>1.00</td><td>1.00</td><td>1.00</td><td><span class="bdg bdg-good">Excellent</span></td></tr>
         <tr><td>Random Forest</td><td>100.00%</td><td>1.00</td><td>1.00</td><td>1.00</td><td><span class="bdg bdg-good">Excellent</span></td></tr>
-        <tr><td><strong style="color:var(--secondary)">XGBoost</strong></td><td>100.00%</td><td>1.00</td><td>1.00</td><td>1.00</td><td><span class="bdg bdg-best">⭐ Best</span></td></tr>
+        <tr><td><strong style="color:var(--secondary)">XGBoost</strong></td><td>100.00%</td><td>1.00</td><td>1.00</td><td>1.00</td><td><span class="bdg bdg-best"> Best</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -1383,7 +1383,7 @@ elif selected_page == "  MODEL PERFORMANCE":
       <tbody>
         <tr><td>Linear Regression</td><td>Baseline</td><td>Baseline</td><td><span class="bdg bdg-base">Baseline</span></td></tr>
         <tr><td>Random Forest</td><td>—</td><td>Good</td><td><span class="bdg bdg-good">Good</span></td></tr>
-        <tr><td><strong style="color:var(--secondary)">XGBoost</strong></td><td>21.05</td><td>0.7929</td><td><span class="bdg bdg-best">⭐ Best</span></td></tr>
+        <tr><td><strong style="color:var(--secondary)">XGBoost</strong></td><td>21.05</td><td>0.7929</td><td><span class="bdg bdg-best"> Best</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -1402,7 +1402,7 @@ elif selected_page == "  MODEL PERFORMANCE":
     <table class="tbl">
       <thead><tr><th>Algorithm</th><th>Accuracy</th><th>Classes</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><strong style="color:var(--secondary)">Logistic Regression</strong></td><td>48.60%</td><td>Low / Medium / High</td><td><span class="bdg bdg-best">⭐ Best</span></td></tr>
+        <tr><td><strong style="color:var(--secondary)">Logistic Regression</strong></td><td>48.60%</td><td>Low / Medium / High</td><td><span class="bdg bdg-best"> Best</span></td></tr>
         <tr><td>XGBoost</td><td>48.12%</td><td>Low / Medium / High</td><td><span class="bdg bdg-good">Good</span></td></tr>
         <tr><td>Random Forest</td><td>48.04%</td><td>Low / Medium / High</td><td><span class="bdg bdg-good">Good</span></td></tr>
       </tbody>
