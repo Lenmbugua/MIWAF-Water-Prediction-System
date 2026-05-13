@@ -43,7 +43,7 @@ if not st.session_state.authenticated:
     <div class="login-box">
       <div style="font-size:52px">🌊</div>
       <h1>MIWAF</h1>
-      <p>WATER PREDICTION SYSTEM<br>Enter your password to continue</p>
+      <p>WATER CRISIS PREDICTION SYSTEM<br>Enter your password to continue</p>
     </div>
     """, unsafe_allow_html=True)
     password = st.text_input("Password", type="password", placeholder="Enter password...")
