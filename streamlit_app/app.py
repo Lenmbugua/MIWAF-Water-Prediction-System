@@ -745,6 +745,9 @@ def load_models():
         models['status'] = 'ready'
     except Exception as e:
         models['status'] = f'error: {e}'
+        st.error(f"Model load error: {e}")
+        st.error(f"Models dir: {models_dir}")
+        st.stop()
     return models
 
 models = load_models()
