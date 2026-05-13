@@ -1106,8 +1106,8 @@ elif selected_page == "  QUEUE TIME FORECASTER":
         #     'tap_in_home_broken': ('ia-warn', 'warning',       'Broken tap — minimal queue expected while residents seek alternatives.'),
         #     'well':               ('ia-info', 'info',          'Wells have moderate queue times, typically below shared taps.'),
         # }
-        hcls, hico, htxt = source_hints[source_type]
-        st.markdown(f'<div class="ia {hcls}"><span class="ms">{hico}</span><span>{htxt}</span></div>', unsafe_allow_html=True)
+        # hcls, hico, htxt = source_hints[source_type]
+        # st.markdown(f'<div class="ia {hcls}"><span class="ms">{hico}</span><span>{htxt}</span></div>', unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
         q1, q2 = st.columns(2)
