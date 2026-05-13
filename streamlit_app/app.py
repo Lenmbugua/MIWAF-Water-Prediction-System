@@ -713,7 +713,13 @@ section[data-testid="stSidebar"] div[role="radiogroup"] p {
 def load_models():
     base_dir   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     models_dir = os.path.join(base_dir, 'models')
-    models     = {}
+
+    # Fallback for Streamlit Cloud
+    if not os.path.exists(models_dir):
+        models_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'models')
+        models_dir = os.path.normpath(models_dir)
+
+    models = {}
     try:
         with open(os.path.join(models_dir, 'contamination_model.pkl'), 'rb') as f:
             models['contamination'] = pickle.load(f)
