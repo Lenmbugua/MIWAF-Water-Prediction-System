@@ -1099,13 +1099,13 @@ elif selected_page == "  QUEUE TIME FORECASTER":
 
         source_type = st.selectbox("Water Source Type", ['shared_tap', 'river', 'tap_in_home', 'tap_in_home_broken', 'well'])
 
-        source_hints = {
-            'shared_tap':         ('ia-info', 'info',          'Shared taps have the highest queue times across all provinces.'),
-            'river':              ('ia-info', 'info',          'Rivers typically have lower queue times but higher contamination risk.'),
-            'tap_in_home':        ('ia-ok',   'check_circle',  'Tap in home connections always return 0 min queue — piped directly to household.'),
-            'tap_in_home_broken': ('ia-warn', 'warning',       'Broken tap — minimal queue expected while residents seek alternatives.'),
-            'well':               ('ia-info', 'info',          'Wells have moderate queue times, typically below shared taps.'),
-        }
+        # source_hints = {
+        #     'shared_tap':         ('ia-info', 'info',          'Shared taps have the highest queue times across all provinces.'),
+        #     'river':              ('ia-info', 'info',          'Rivers typically have lower queue times but higher contamination risk.'),
+        #     'tap_in_home':        ('ia-ok',   'check_circle',  'Tap in home connections always return 0 min queue — piped directly to household.'),
+        #     'tap_in_home_broken': ('ia-warn', 'warning',       'Broken tap — minimal queue expected while residents seek alternatives.'),
+        #     'well':               ('ia-info', 'info',          'Wells have moderate queue times, typically below shared taps.'),
+        # }
         hcls, hico, htxt = source_hints[source_type]
         st.markdown(f'<div class="ia {hcls}"><span class="ms">{hico}</span><span>{htxt}</span></div>', unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
