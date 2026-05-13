@@ -16,7 +16,7 @@ import streamlit.components.v1 as components
 
 # ── Page config ───────────────────────────────────────────────
 st.set_page_config(
-    page_title            = "MIWAF — WATER PREDICTION SYSTEM",
+    page_title            = "MIWAF — WATER CRISIS PREDICTION SYSTEM",
     page_icon             = "🌊",
     layout                = "wide",
     initial_sidebar_state = "expanded"
