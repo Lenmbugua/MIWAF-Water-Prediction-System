@@ -49,6 +49,7 @@ ROLE_PAGES = {
         "  CONTAMINATION PREDICTOR",
         "  QUEUE TIME FORECASTER",
         "  CRIME RISK SCORER",
+        " AUDIT LOG",
     ],
     "Viewer":  [
         " OVERVIEW",
