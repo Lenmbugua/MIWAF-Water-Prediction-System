@@ -1668,13 +1668,22 @@ elif selected_page == "  AUDIT LOG":
         with ac1:
             st.markdown("""<div class="sh" style="margin-top:6px"><span class="ms">history</span><h3>Full Prediction Log</h3></div>""", unsafe_allow_html=True)
         with ac2:
-            log_df = pd.DataFrame(log)
-            st.download_button("⬇ Export CSV", log_df.to_csv(index=False),
-                               "miwaf_audit_log.csv", "text/csv", use_container_width=True)
+            if st.session_state.role == "Admin":
+                log_df = pd.DataFrame(log)
+                st.download_button("⬇ Export CSV", log_df.to_csv(index=False),
+                                   "miwaf_audit_log.csv", "text/csv", use_container_width=True)
+            else:
+                st.markdown("""
+                <div class="ia ia-info" style="margin-top:6px">
+                  <span class="ms">lock</span>
+                  <span>Export restricted — request CSV from Admin</span>
+                </div>
+                """, unsafe_allow_html=True)
         with ac3:
-            if st.button("🗑 Clear Log", use_container_width=True):
-                st.session_state.audit_log = []
-                st.rerun()
+            if st.session_state.role == "Admin":
+                if st.button("🗑 Clear Log", use_container_width=True):
+                    st.session_state.audit_log = []
+                    st.rerun()
 
         log_df = pd.DataFrame(log)
 
