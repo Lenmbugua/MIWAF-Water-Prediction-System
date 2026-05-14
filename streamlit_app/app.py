@@ -96,8 +96,8 @@ if not st.session_state.authenticated:
       </div>
       <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
       <div style="text-align:center;">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#69ffc1;">100%</div>
-        <div style="font-size:11px;color:#7eb3ff;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Contamination Accuracy</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#69ffc1;">8</div>
+        <div style="font-size:11px;color:#7eb3ff;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Datasets Integrated</div>
       </div>
       <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
       <div style="text-align:center;">
