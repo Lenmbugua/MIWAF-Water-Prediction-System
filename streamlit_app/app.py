@@ -157,7 +157,7 @@ if not st.session_state.authenticated:
       <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
         <div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));border:1px solid rgba(77,142,255,0.30);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">🌊</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#ffffff;letter-spacing:-1px;">MIWAF</div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#4d8eff;margin-top:6px;">Maji Ndogo Water Analytics Framework</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#4d8eff;margin-top:6px;">WATER CRISIS PREDICTION SYSTEM</div>
         <div style="height:1px;background:rgba(255,255,255,0.08);margin:24px 0;"></div>
         <div style="font-size:14px;color:#cbd8ea;line-height:1.7;margin-bottom:24px;">
           ML-powered predictions for <strong style="color:#ffffff">well contamination</strong>,
