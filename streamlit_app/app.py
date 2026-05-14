@@ -905,6 +905,8 @@ if 'audit_log' not in st.session_state:
 def log_prediction(model_name, inputs, result, confidence=None):
     st.session_state.audit_log.append({
         'Time'      : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        'User'      : st.session_state.username,
+        'Role'      : st.session_state.role,
         'Model'     : model_name,
         'Inputs'    : str(inputs),
         'Result'    : result,
