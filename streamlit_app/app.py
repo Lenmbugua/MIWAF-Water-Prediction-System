@@ -1702,7 +1702,7 @@ elif selected_page == "  AUDIT LOG":
             try:    conf_pct = float(conf_num)
             except: conf_pct = 70.0
 
-            role_colors = {"Admin": "#ff8a80", "Analyst": "#ffe57a", "Viewer": "#69ffc1"}
+            role_colors = {"Admin": "#69ffc1", "Analyst": "#ffe57a", "Viewer": "#ff8a80"}
             rcol = role_colors.get(e.get('Role',''), '#ffffff')
             rows_html += f"""
             <tr>
