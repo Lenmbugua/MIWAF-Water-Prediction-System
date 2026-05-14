@@ -164,7 +164,7 @@ if not st.session_state.authenticated:
           <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Random Forest</span>
         </div>
 
-        <!-- Role guide -->
+
         <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:left;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#7eb3ff;margin-bottom:10px;">Access Levels</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
