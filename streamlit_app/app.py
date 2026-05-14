@@ -963,7 +963,7 @@ st.markdown(f"""
 <div class="top-bar">
   <div>
     <div class="tb-title">🌊 MIWAF — {pg_title}</div>
-    <div class="tb-sub">Maji Ndogo Integrated Water Analytics Framework &nbsp;·&nbsp; {pg_sub}</div>
+    <div class="tb-sub">WATER CRISIS PREDICTION SYSTEM &nbsp;·&nbsp; {pg_sub}</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
     <div class="tb-badge"><span class="ms" style="font-size:14px">verified</span> XGBoost + LogReg</div>
