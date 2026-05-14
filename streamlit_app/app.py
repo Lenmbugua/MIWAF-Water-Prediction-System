@@ -1702,16 +1702,20 @@ elif selected_page == "  AUDIT LOG":
             try:    conf_pct = float(conf_num)
             except: conf_pct = 70.0
 
+            role_colors = {"Admin": "#ff8a80", "Analyst": "#ffe57a", "Viewer": "#69ffc1"}
+            rcol = role_colors.get(e.get('Role',''), '#ffffff')
             rows_html += f"""
             <tr>
-              <td style="color:#ffffff;font-size:18px;white-space:nowrap">{e['Time']}</td>
-              <td><span class="chip {mcls}" style="font-size:16px">{e['Model']}</span></td>
-              <td style="color:#ffffff;font-size:18px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="{e['Inputs']}">{e['Inputs']}</td>
-              <td><strong style="color:var(--on-surface)">{e['Result']}</strong></td>
+              <td style="color:#ffffff;font-size:16px;white-space:nowrap">{e['Time']}</td>
+              <td style="color:#ffffff;font-size:14px;font-weight:700">{e.get('User','—')}</td>
+              <td><span style="color:{rcol};font-size:12px;font-weight:700;background:rgba(255,255,255,0.06);padding:3px 10px;border-radius:99px;">{e.get('Role','—')}</span></td>
+              <td><span class="chip {mcls}" style="font-size:13px">{e['Model']}</span></td>
+              <td style="color:#ffffff;font-size:14px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="{e['Inputs']}">{e['Inputs']}</td>
+              <td><strong style="color:#ffffff">{e['Result']}</strong></td>
               <td>
                 <div class="conf-bar-wrap">
                   <div class="conf-bar"><div class="conf-bar-fill" style="width:{min(conf_pct,100):.0f}%"></div></div>
-                  <span style="font-size:11.5px;color:var(--on-variant);white-space:nowrap">{e['Confidence']}</span>
+                  <span style="font-size:13px;color:#ffffff;white-space:nowrap">{e['Confidence']}</span>
                 </div>
               </td>
             </tr>"""
@@ -1721,7 +1725,7 @@ elif selected_page == "  AUDIT LOG":
           <table class="tbl">
             <thead>
               <tr>
-                <th>Time</th><th>Model</th><th>Inputs</th>
+                <th>Time</th><th>User</th><th>Role</th><th>Model</th><th>Inputs</th>
                 <th>Result</th><th>Confidence</th>
               </tr>
             </thead>
