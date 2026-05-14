@@ -31,38 +31,26 @@ if "authenticated" not in st.session_state:
 if not st.session_state.authenticated:
     st.markdown("""
     <style>
-    .stApp { background-color: #051424 !important;
+    .stApp {
+      background-color: #051424 !important;
       background-image:
         radial-gradient(ellipse at 0% 0%, rgba(77,142,255,0.12) 0%, transparent 50%),
         radial-gradient(ellipse at 100% 100%, rgba(76,215,246,0.10) 0%, transparent 50%) !important;
     }
     header[data-testid="stHeader"] { display: none !important; }
     footer { display: none !important; }
-
-    /* Center everything */
     .block-container { padding: 0 !important; max-width: 100% !important; }
     .stMainBlockContainer { padding: 0 !important; }
-
-    /* Hide default streamlit input label */
     label[data-testid="stWidgetLabel"] { display: none !important; }
-
-    /* Style the input */
     [data-testid="stTextInput"] input {
       background: rgba(255,255,255,0.06) !important;
       border: 1px solid rgba(255,255,255,0.15) !important;
       border-radius: 12px !important;
       color: #ffffff !important;
       font-size: 15px !important;
-      padding: 14px 18px !important;
       text-align: center !important;
     }
-    [data-testid="stTextInput"] input:focus {
-      border-color: rgba(77,142,255,0.60) !important;
-      box-shadow: 0 0 0 2px rgba(77,142,255,0.15) !important;
-    }
     [data-testid="stTextInput"] input::placeholder { color: rgba(255,255,255,0.35) !important; }
-
-    /* Style the button */
     .stButton > button {
       background: linear-gradient(135deg, #4d8eff 0%, #03b5d3 100%) !important;
       color: #ffffff !important;
@@ -73,56 +61,29 @@ if not st.session_state.authenticated:
       padding: 14px !important;
       width: 100% !important;
       box-shadow: 0 0 32px rgba(3,181,211,0.30) !important;
-      transition: transform 0.15s, box-shadow 0.15s !important;
-      letter-spacing: 0.05em !important;
     }
-    .stButton > button:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 0 48px rgba(3,181,211,0.50) !important;
-    }
-
-    /* Animated wave at bottom */
-    .wave-container {
-      position: fixed; bottom: 0; left: 0; width: 100%; overflow: hidden;
-      line-height: 0; pointer-events: none;
-    }
-    .wave-container svg { display: block; width: 100%; height: 120px; }
-
-    /* Floating particles */
-    .particles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .stButton > button:hover { transform: translateY(-2px) !important; }
     .particle {
-      position: absolute; border-radius: 50%;
+      position: fixed; border-radius: 50%;
       background: rgba(77,142,255,0.15);
       animation: float linear infinite;
+      pointer-events: none;
     }
     @keyframes float {
-      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      0%   { transform: translateY(100vh); opacity: 0; }
       10%  { opacity: 1; }
       90%  { opacity: 1; }
-      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+      100% { transform: translateY(-100px); opacity: 0; }
     }
     </style>
 
-    <!-- Floating particles -->
-    <div class="particles">
-      <div class="particle" style="left:10%;width:8px;height:8px;animation-duration:8s;animation-delay:0s"></div>
-      <div class="particle" style="left:25%;width:5px;height:5px;animation-duration:11s;animation-delay:2s"></div>
-      <div class="particle" style="left:40%;width:10px;height:10px;animation-duration:9s;animation-delay:1s"></div>
-      <div class="particle" style="left:55%;width:6px;height:6px;animation-duration:13s;animation-delay:3s"></div>
-      <div class="particle" style="left:70%;width:8px;height:8px;animation-duration:10s;animation-delay:0.5s"></div>
-      <div class="particle" style="left:85%;width:5px;height:5px;animation-duration:12s;animation-delay:4s"></div>
-      <div class="particle" style="left:92%;width:7px;height:7px;animation-duration:7s;animation-delay:1.5s"></div>
-    </div>
+    <div class="particle" style="left:10%;width:8px;height:8px;animation-duration:8s;animation-delay:0s;bottom:0"></div>
+    <div class="particle" style="left:25%;width:5px;height:5px;animation-duration:11s;animation-delay:2s;bottom:0"></div>
+    <div class="particle" style="left:40%;width:10px;height:10px;animation-duration:9s;animation-delay:1s;bottom:0"></div>
+    <div class="particle" style="left:70%;width:8px;height:8px;animation-duration:10s;animation-delay:0.5s;bottom:0"></div>
+    <div class="particle" style="left:85%;width:5px;height:5px;animation-duration:12s;animation-delay:4s;bottom:0"></div>
 
-    <!-- Wave at bottom -->
-    <div class="wave-container">
-      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-        <path fill="rgba(77,142,255,0.08)" d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"/>
-        <path fill="rgba(3,181,211,0.06)" d="M0,80 C480,20 960,100 1440,40 L1440,120 L0,120 Z"/>
-      </svg>
-    </div>
-
-    <!-- Stats bar at top -->
+    <!-- Stats bar -->
     <div style="display:flex;justify-content:center;gap:40px;padding:28px 40px 0;flex-wrap:wrap;">
       <div style="text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#ffffff;">319,599</div>
@@ -146,45 +107,18 @@ if not st.session_state.authenticated:
     </div>
 
     <!-- Login card -->
-    <div style="display:flex;align-items:center;justify-content:center;min-height:70vh;">
-      <div style="
-        width:100%;max-width:460px;
-        background:rgba(18,33,49,0.80);
-        border:1px solid rgba(255,255,255,0.10);
-        border-top:1px solid rgba(255,255,255,0.22);
-        border-radius:24px;
-        padding:48px 44px 40px;
-        backdrop-filter:blur(20px);
-        box-shadow:0 32px 80px rgba(0,0,0,0.40), 0 0 0 1px rgba(77,142,255,0.08);
-        text-align:center;
-        margin: 0 16px;
-      ">
-        <!-- Icon -->
-        <div style="
-          width:72px;height:72px;border-radius:20px;
-          background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));
-          border:1px solid rgba(77,142,255,0.30);
-          display:flex;align-items:center;justify-content:center;
-          margin:0 auto 20px;font-size:36px;
-          box-shadow:0 0 32px rgba(77,142,255,0.20);
-        ">🌊</div>
-
-        <!-- Title -->
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#ffffff;letter-spacing:-1px;line-height:1;">MIWAF</div>
+    <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px;">
+      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
+        <div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));border:1px solid rgba(77,142,255,0.30);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">🌊</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#ffffff;letter-spacing:-1px;">MIWAF</div>
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#4d8eff;margin-top:6px;">Maji Ndogo Water Analytics Framework</div>
-
-        <!-- Divider -->
         <div style="height:1px;background:rgba(255,255,255,0.08);margin:24px 0;"></div>
-
-        <!-- Subtitle -->
-        <div style="font-size:14px;color:#cbd8ea;line-height:1.7;margin-bottom:28px;">
+        <div style="font-size:14px;color:#cbd8ea;line-height:1.7;margin-bottom:24px;">
           ML-powered predictions for <strong style="color:#ffffff">well contamination</strong>,
           <strong style="color:#ffffff">queue times</strong> and
           <strong style="color:#ffffff">crime risk</strong> at water collection points.
         </div>
-
-        <!-- Badge row -->
-        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
           <span style="background:rgba(77,142,255,0.12);border:1px solid rgba(77,142,255,0.25);color:#7eb3ff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">XGBoost</span>
           <span style="background:rgba(76,215,246,0.10);border:1px solid rgba(76,215,246,0.22);color:#4cd7f6;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Logistic Regression</span>
           <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">KCA University</span>
@@ -192,6 +126,17 @@ if not st.session_state.authenticated:
       </div>
     </div>
     """, unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns([1, 1.2, 1])
+    with col2:
+        password = st.text_input("Password", type="password", placeholder="🔑  Enter access password...")
+        if st.button("🌊  Login to MIWAF", use_container_width=True):
+            if password == "miwaf2026":
+                st.session_state.authenticated = True
+                st.rerun()
+            else:
+                st.error("❌ Incorrect password. Please try again.")
+    st.stop()
 
     # Input and button centered
     col1, col2, col3 = st.columns([1, 1.2, 1])
