@@ -25,9 +25,6 @@ st.set_page_config(
 # ════════════════════════════════════════════════════════════
 # AUTHENTICATION
 # ════════════════════════════════════════════════════════════
-# ════════════════════════════════════════════════════════════
-# USERS & ROLES
-# ════════════════════════════════════════════════════════════
 USERS = {
     "admin":   {"password": "admin2026",   "role": "Admin"},
     "analyst": {"password": "analyst2026", "role": "Analyst"},
@@ -70,6 +67,8 @@ if "username" not in st.session_state:
     st.session_state.username = None
 
 if not st.session_state.authenticated:
+
+    # ── LOGIN PAGE STYLES ─────────────────────────────────────
     st.markdown("""
     <style>
     .stApp {
@@ -117,14 +116,19 @@ if not st.session_state.authenticated:
       100% { transform: translateY(-100px); opacity: 0; }
     }
     </style>
+    """, unsafe_allow_html=True)
 
+    # ── PARTICLES ─────────────────────────────────────────────
+    st.markdown("""
     <div class="particle" style="left:10%;width:8px;height:8px;animation-duration:8s;animation-delay:0s;bottom:0"></div>
     <div class="particle" style="left:25%;width:5px;height:5px;animation-duration:11s;animation-delay:2s;bottom:0"></div>
     <div class="particle" style="left:40%;width:10px;height:10px;animation-duration:9s;animation-delay:1s;bottom:0"></div>
     <div class="particle" style="left:70%;width:8px;height:8px;animation-duration:10s;animation-delay:0.5s;bottom:0"></div>
     <div class="particle" style="left:85%;width:5px;height:5px;animation-duration:12s;animation-delay:4s;bottom:0"></div>
+    """, unsafe_allow_html=True)
 
-    
+    # ── STATS BAR ─────────────────────────────────────────────
+    st.markdown("""
     <div style="display:flex;justify-content:center;gap:40px;padding:28px 40px 0;flex-wrap:wrap;">
       <div style="text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#ffffff;">319,599</div>
@@ -146,10 +150,12 @@ if not st.session_state.authenticated:
         <div style="font-size:11px;color:#7eb3ff;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Provinces Covered</div>
       </div>
     </div>
+    """, unsafe_allow_html=True)
 
-    
-    <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px;">
-      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
+    # ── LOGIN CARD — TOP SECTION (icon, title, description, badges) ──
+    st.markdown("""
+    <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px 0;">
+      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 28px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
         <div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));border:1px solid rgba(77,142,255,0.30);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">🌊</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#ffffff;letter-spacing:-1px;">MIWAF</div>
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#4d8eff;margin-top:6px;">Maji Ndogo Water Analytics Framework</div>
@@ -159,14 +165,20 @@ if not st.session_state.authenticated:
           <strong style="color:#ffffff">queue times</strong> and
           <strong style="color:#ffffff">crime risk</strong> at water collection points.
         </div>
-        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:0;flex-wrap:wrap;">
           <span style="background:rgba(77,142,255,0.12);border:1px solid rgba(77,142,255,0.25);color:#7eb3ff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">XGBoost</span>
           <span style="background:rgba(76,215,246,0.10);border:1px solid rgba(76,215,246,0.22);color:#4cd7f6;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Logistic Regression</span>
           <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Random Forest</span>
         </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-
-        <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:left;">
+    # ── LOGIN CARD — ACCESS LEVELS (separate call to avoid markdown code-block parsing) ──
+    st.markdown("""
+    <div style="display:flex;align-items:center;justify-content:center;padding:0 16px 0;">
+      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:none;border-radius:0 0 24px 24px;padding:0 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);">
+        <div style="padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#7eb3ff;margin-bottom:10px;">Access Levels</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
             <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
@@ -187,6 +199,7 @@ if not st.session_state.authenticated:
     </div>
     """, unsafe_allow_html=True)
 
+    # ── LOGIN INPUTS ──────────────────────────────────────────
     col1, col2, col3 = st.columns([1, 1.2, 1])
     with col2:
         username = st.text_input("Username", placeholder="👤  Enter username...")
@@ -200,6 +213,7 @@ if not st.session_state.authenticated:
             else:
                 st.error("❌ Incorrect username or password.")
     st.stop()
+
 # ════════════════════════════════════════════════════════════
 # DESIGN SYSTEM — GLASSMORPHIC HYDRO-INTELLIGENCE
 # ════════════════════════════════════════════════════════════
@@ -265,14 +279,12 @@ section[data-testid="stSidebar"] {
 section[data-testid="stSidebar"] > div:first-child {
   padding: 0 !important;
 }
-/* ── HIDE SIDEBAR COLLAPSE ARROW BUTTON ─────────────────── */
 button[data-testid="collapsedControl"],
 button[kind="header"][aria-label="Close sidebar"],
 section[data-testid="stSidebar"] button[data-testid="baseButton-header"] {
   display: none !important;
 }
 [data-testid="stSidebarCollapseButton"] { display: none !important; }
-/* Also hide the expand arrow that appears when sidebar is collapsed */
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
 section[data-testid="stSidebar"] ::-webkit-scrollbar { width: 4px; }
 section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb {
@@ -280,18 +292,15 @@ section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb {
 }
 
 /* ── HIDE DEFAULT RADIO STYLE & RE-STYLE AS NAV ITEMS ────── */
-/* Hide the radio widget label */
 section[data-testid="stSidebar"] [data-testid="stRadio"] > label {
   display: none !important;
 }
-/* Radio container */
 section[data-testid="stSidebar"] [data-testid="stRadio"] > div {
   display: flex !important;
   flex-direction: column !important;
   gap: 2px !important;
   padding: 0 !important;
 }
-/* Each radio option row */
 section[data-testid="stSidebar"] [data-testid="stRadio"] label {
   display: flex !important;
   align-items: center !important;
@@ -313,14 +322,12 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {
   background: rgba(173,198,255,0.07) !important;
   color: var(--on-surface) !important;
 }
-/* Selected radio item */
 section[data-testid="stSidebar"] [data-testid="stRadio"] label[data-baseweb="radio"]:has(input:checked),
 section[data-testid="stSidebar"] [data-testid="stRadio"] [aria-checked="true"] {
   background: rgba(77,142,255,0.18) !important;
   color: var(--primary) !important;
   font-weight: 700 !important;
 }
-/* Hide the actual radio circle dot */
 section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] > div:first-child {
   display: none !important;
 }
@@ -659,15 +666,12 @@ hr { border-color: var(--border) !important; margin: 16px 0 !important; }
   text-transform: uppercase; color: #ffffff; margin-top: 3px;
 }
 
-/* ── SIDEBAR NAV SECTION LABEL ───────────────────────────── */
 .sb-nav-label {
   font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
   text-transform: uppercase; color: var(--on-variant);
   padding: 10px 16px 4px;
 }
 
-/* ── SIDEBAR NAV ITEM (styled radio) ────────────────────── */
-/* Override radio to look like nav items */
 section[data-testid="stSidebar"] div[role="radiogroup"] {
   display: flex !important;
   flex-direction: column !important;
@@ -697,7 +701,6 @@ section[data-testid="stSidebar"] div[role="radiogroup"] label[data-checked="true
   color: #adc6ff !important;
   font-weight: 700 !important;
 }
-/* Hide radio circles */
 section[data-testid="stSidebar"] div[role="radiogroup"] label > div:first-child {
   display: none !important;
 }
@@ -814,10 +817,8 @@ section[data-testid="stSidebar"] div[role="radiogroup"] p {
 .conf-bar { flex: 1; height: 5px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
 .conf-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary-c), var(--secondary)); border-radius: 99px; }
 
-/* ── PAGE CONTENT WRAPPER ────────────────────────────────── */
 .page-content { padding: 24px 28px 40px; }
 
-/* ── SIDEBAR FOOTER ──────────────────────────────────────── */
 .sb-footer {
   position: fixed;
   bottom: 0;
@@ -857,7 +858,6 @@ section[data-testid="stSidebar"] div[role="radiogroup"] p {
 # ════════════════════════════════════════════════════════════
 @st.cache_resource
 def load_models():
-    # Streamlit Cloud serves from /mount/src/<repo-name>/
     possible_paths = [
         os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'models'),
         os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'models'),
@@ -918,7 +918,6 @@ def log_prediction(model_name, inputs, result, confidence=None):
 # SIDEBAR — Brand + Navigation only
 # ════════════════════════════════════════════════════════════
 with st.sidebar:
-    # Brand block
     st.markdown("""
     <div class="sb-brand">
       <span class="sb-brand-ic">🌊</span>
@@ -927,8 +926,6 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-    # ── MAIN NAVIGATION ──────────────────────────────────────
-# Role-based navigation
     nav_options = ROLE_PAGES[st.session_state.role]
 
     selected_page = st.radio(
@@ -937,7 +934,6 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 
-    # Role badge + logout in sidebar
     role = st.session_state.role
     username = st.session_state.username
     emoji, bg, border, color = ROLE_BADGES[role]
@@ -959,7 +955,6 @@ with st.sidebar:
         st.session_state.username = None
         st.rerun()
 
-    # ── BOTTOM FOOTER ─────────────────────────────────────────
     status_ok = models.get('status') == 'ready'
     status_dot  = "pulse"    if status_ok else "pulse er"
     status_lbl  = "sb-status-lbl" if status_ok else "sb-status-lbl er"
@@ -970,10 +965,8 @@ with st.sidebar:
         <span class="{status_dot}"></span>
         <span class="{status_lbl}">{status_text}</span>
       </div>
-      <div class="sb-footer-item">
-      </div>
-      <div class="sb-footer-item">
-      </div>
+      <div class="sb-footer-item"></div>
+      <div class="sb-footer-item"></div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -981,13 +974,12 @@ with st.sidebar:
 # ════════════════════════════════════════════════════════════
 # TOP HEADER BAR
 # ════════════════════════════════════════════════════════════
-# Map selected page to a short display title
 page_titles = {
     " OVERVIEW":                  ("WATER CRISIS PREDICTION SYSTEM", "Real-time Prediction"),
     "  CONTAMINATION PREDICTOR":   ("Contamination Predictor", "WHO threshold analysis · Chemical & biological readings"),
     "  QUEUE TIME FORECASTER":     ("QUEUE TIME FORECASTER", "Wait-time prediction at water collection points"),
     "  CRIME RISK SCORER":         ("Crime Risk Scorer", "Risk assessment at water collection points"),
-    " MODEL PERFOMANCE":         ("Model Performance", "Detailed accuracy and error metrics for all 3 models"),
+    "  MODEL PERFORMANCE":         ("Model Performance", "Detailed accuracy and error metrics for all 3 models"),
     "  CONFUSION MATRICES":        ("Confusion Matrices", "Visual breakdown of predictions and feature importance"),
     "  AUDIT LOG":                 ("Audit Log", "Chronological record of all predictions this session"),
 }
@@ -1012,7 +1004,7 @@ st.markdown(f"""
 
 
 # ════════════════════════════════════════════════════════════
-# PAGE CONTENT — driven by sidebar radio selection
+# PAGE CONTENT
 # ════════════════════════════════════════════════════════════
 
 # ── PAGE: OVERVIEW ───────────────────────────────────────────
@@ -1261,16 +1253,6 @@ elif selected_page == "  QUEUE TIME FORECASTER":
         st.markdown("""<div class="sh"><span class="ms">water_pump</span><h3>Water Source Details</h3></div>""", unsafe_allow_html=True)
 
         source_type = st.selectbox("Water Source Type", ['shared_tap', 'river', 'tap_in_home', 'tap_in_home_broken', 'well'])
-
-        # source_hints = {
-        #     'shared_tap':         ('ia-info', 'info',          'Shared taps have the highest queue times across all provinces.'),
-        #     'river':              ('ia-info', 'info',          'Rivers typically have lower queue times but higher contamination risk.'),
-        #     'tap_in_home':        ('ia-ok',   'check_circle',  'Tap in home connections always return 0 min queue — piped directly to household.'),
-        #     'tap_in_home_broken': ('ia-warn', 'warning',       'Broken tap — minimal queue expected while residents seek alternatives.'),
-        #     'well':               ('ia-info', 'info',          'Wells have moderate queue times, typically below shared taps.'),
-        # }
-        # hcls, hico, htxt = source_hints[source_type]
-        # st.markdown(f'<div class="ia {hcls}"><span class="ms">{hico}</span><span>{htxt}</span></div>', unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
         q1, q2 = st.columns(2)
@@ -1384,41 +1366,16 @@ elif selected_page == "  CRIME RISK SCORER":
         st.markdown("""<div class="sh"><span class="ms">security</span><h3>Collection Point Details</h3></div>""", unsafe_allow_html=True)
 
         incident_hour = st.slider("Hour of Day", 0, 23, 18, help="Evening hours have higher crime rates")
-
-        # if incident_hour < 6:
-        #     h_cls, h_ico, h_txt = 'ia-err',  'nightlight', 'Late night / early morning — very high crime window.'
-        # elif incident_hour < 12:
-        #     h_cls, h_ico, h_txt = 'ia-ok',   'wb_sunny',   'Morning collection hours — lower crime risk.'
-        # elif incident_hour < 17:
-        #     h_cls, h_ico, h_txt = 'ia-info', 'light_mode', 'Afternoon hours — moderate baseline risk.'
-        # else:
-        #     h_cls, h_ico, h_txt = 'ia-warn', 'warning',    'Evening hours — historically higher crime risk at water points.'
-        # st.markdown(f'<div class="ia {h_cls}"><span class="ms">{h_ico}</span><span>{h_txt}</span></div>', unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
         incident_day = st.selectbox("Day of Week", [0,1,2,3,4,5,6], index=4,
             format_func=lambda x: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][x])
 
         days_lbl = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-        # if incident_day == 4:
-        #     d_cls, d_ico, d_txt = 'ia-warn', 'event',         'Friday — highest crime incidence day from Phase 1 analysis.'
-        # elif incident_day >= 5:
-        #     d_cls, d_ico, d_txt = 'ia-info', 'weekend',       f'{days_lbl[incident_day]} — generally lower crime at water points.'
-        # else:
-        #     d_cls, d_ico, d_txt = 'ia-info', 'calendar_today', f'{days_lbl[incident_day]} — average weekday crime levels.'
-        # st.markdown(f'<div class="ia {d_cls}"><span class="ms">{d_ico}</span><span>{d_txt}</span></div>', unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
         victim_gender = st.selectbox("Collector Gender", ['F','M','C'],
             format_func=lambda x: {'F':'Female','M':'Male','C':'Child'}[x])
-
-        # if victim_gender == 'F':
-        #     g_cls, g_ico, g_txt = 'ia-warn', 'person',      'Female collectors account for 64.39% of crime victims in Maji Ndogo.'
-        # elif victim_gender == 'C':
-        #     g_cls, g_ico, g_txt = 'ia-err',  'child_care',  'Child collectors face elevated risk, especially during evening hours.'
-        # else:
-        #     g_cls, g_ico, g_txt = 'ia-info', 'person',      'Male collectors face lower relative crime risk at water points.'
-        # st.markdown(f'<div class="ia {g_cls}"><span class="ms">{g_ico}</span><span>{g_txt}</span></div>', unsafe_allow_html=True)
 
         gender_encoded = {'F':0,'M':1,'C':2}[victim_gender]
 
@@ -1581,7 +1538,7 @@ elif selected_page == "  CONFUSION MATRICES":
     st.markdown("""
     <div class="page-content">
     <div class="ab">
-      <b>Confusion Matrices & Visualizations</b>
+      <b>Confusion Matrices &amp; Visualizations</b>
       <p>Visual breakdown of correct and incorrect predictions for each model.
       Images are loaded from the <code>outputs/</code> folder generated by the training notebooks.</p>
     </div>
