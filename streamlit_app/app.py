@@ -1244,9 +1244,9 @@ elif selected_page == "  QUEUE TIME FORECASTER":
 
         is_weekend = 1 if day_of_week >= 5 else 0
         if is_weekend:
-            st.markdown('<div class="ia ia-info"><span class="ms">event</span><span>Weekend — typically lower queue pressure at most sources.</span></div>', unsafe_allow_html=True)
+            #st.markdown('<div class="ia ia-info"><span class="ms">event</span><span>Weekend — typically lower queue pressure at most sources.</span></div>', unsafe_allow_html=True)
 
-        st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+          st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
         predict_queue = st.button(" Forecast Queue Time", key="queue_btn")
 
     with col2:
