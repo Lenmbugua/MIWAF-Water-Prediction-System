@@ -154,8 +154,8 @@ if not st.session_state.authenticated:
 
     # ── LOGIN CARD — TOP SECTION (icon, title, description, badges) ──
     st.markdown("""
-    <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px 0;">
-      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 28px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
+    <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px;">
+      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
         <div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));border:1px solid rgba(77,142,255,0.30);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">🌊</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#ffffff;letter-spacing:-1px;">MIWAF</div>
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#4d8eff;margin-top:6px;">Maji Ndogo Water Analytics Framework</div>
@@ -169,31 +169,6 @@ if not st.session_state.authenticated:
           <span style="background:rgba(77,142,255,0.12);border:1px solid rgba(77,142,255,0.25);color:#7eb3ff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">XGBoost</span>
           <span style="background:rgba(76,215,246,0.10);border:1px solid rgba(76,215,246,0.22);color:#4cd7f6;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Logistic Regression</span>
           <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Random Forest</span>
-        </div>
-      </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # ── LOGIN CARD — ACCESS LEVELS (separate call to avoid markdown code-block parsing) ──
-    st.markdown("""
-    <div style="display:flex;align-items:center;justify-content:center;padding:0 16px 0;">
-      <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:none;border-radius:0 0 24px 24px;padding:0 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);">
-        <div style="padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#7eb3ff;margin-bottom:10px;">Access Levels</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="background:rgba(255,138,128,0.15);border:1px solid rgba(255,138,128,0.35);color:#ff8a80;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Admin</span>
-              <span style="color:#cbd8ea;">Full access — all pages, audit log, model stats</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="background:rgba(255,229,122,0.15);border:1px solid rgba(255,229,122,0.35);color:#ffe57a;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Analyst</span>
-              <span style="color:#cbd8ea;">Prediction tools — contamination, queue, crime</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="background:rgba(105,255,193,0.15);border:1px solid rgba(105,255,193,0.35);color:#69ffc1;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Viewer</span>
-              <span style="color:#cbd8ea;">Overview only — key findings and statistics</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
