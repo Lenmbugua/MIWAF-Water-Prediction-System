@@ -26,9 +26,9 @@ st.set_page_config(
 # AUTHENTICATION
 # ════════════════════════════════════════════════════════════
 USERS = {
-    "Admin":   {"password": "admin2026",   "role": "Admin"},
-    "Analyst": {"password": "analyst2026", "role": "Analyst"},
-    "Viewer":  {"password": "viewer2026",  "role": "Viewer"},
+    "admin":   {"password": "admin2026",   "role": "Admin"},
+    "analyst": {"password": "analyst2026", "role": "Analyst"},
+    "viewer":  {"password": "viewer2026",  "role": "Viewer"},
 }
 
 ROLE_PAGES = {
