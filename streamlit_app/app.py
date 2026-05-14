@@ -123,7 +123,7 @@ if not st.session_state.authenticated:
     <div class="particle" style="left:70%;width:8px;height:8px;animation-duration:10s;animation-delay:0.5s;bottom:0"></div>
     <div class="particle" style="left:85%;width:5px;height:5px;animation-duration:12s;animation-delay:4s;bottom:0"></div>
 
-    <!-- Stats bar -->
+    
     <div style="display:flex;justify-content:center;gap:40px;padding:28px 40px 0;flex-wrap:wrap;">
       <div style="text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#ffffff;">319,599</div>
@@ -146,7 +146,7 @@ if not st.session_state.authenticated:
       </div>
     </div>
 
-    <!-- Login card -->
+    
     <div style="display:flex;align-items:center;justify-content:center;padding:40px 16px;">
       <div style="width:100%;max-width:460px;background:rgba(18,33,49,0.80);border:1px solid rgba(255,255,255,0.10);border-top:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:48px 44px 32px;backdrop-filter:blur(20px);box-shadow:0 32px 80px rgba(0,0,0,0.40);text-align:center;">
         <div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,rgba(77,142,255,0.25),rgba(3,181,211,0.20));border:1px solid rgba(77,142,255,0.30);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">🌊</div>
