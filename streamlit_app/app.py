@@ -121,7 +121,7 @@ if not st.session_state.authenticated:
         <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
           <span style="background:rgba(77,142,255,0.12);border:1px solid rgba(77,142,255,0.25);color:#7eb3ff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">XGBoost</span>
           <span style="background:rgba(76,215,246,0.10);border:1px solid rgba(76,215,246,0.22);color:#4cd7f6;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Logistic Regression</span>
-          <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">KCA University</span>
+          <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Random Forest</span>
         </div>
       </div>
     </div>
