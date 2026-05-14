@@ -25,8 +25,48 @@ st.set_page_config(
 # ════════════════════════════════════════════════════════════
 # AUTHENTICATION
 # ════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════
+# USERS & ROLES
+# ════════════════════════════════════════════════════════════
+USERS = {
+    "admin":   {"password": "admin2026",   "role": "Admin"},
+    "analyst": {"password": "analyst2026", "role": "Analyst"},
+    "viewer":  {"password": "viewer2026",  "role": "Viewer"},
+}
+
+ROLE_PAGES = {
+    "Admin":   [
+        "### OVERVIEW",
+        "###  CONTAMINATION PREDICTOR",
+        "###  QUEUE TIME FORECASTER",
+        "###  CRIME RISK SCORER",
+        "###  MODEL PERFORMANCE",
+        "###  CONFUSION MATRICES",
+        "###  AUDIT LOG",
+    ],
+    "Analyst": [
+        "### OVERVIEW",
+        "###  CONTAMINATION PREDICTOR",
+        "###  QUEUE TIME FORECASTER",
+        "###  CRIME RISK SCORER",
+    ],
+    "Viewer":  [
+        "### OVERVIEW",
+    ],
+}
+
+ROLE_BADGES = {
+    "Admin":   ("🔴", "rgba(255,138,128,0.15)", "rgba(255,138,128,0.35)", "#ff8a80"),
+    "Analyst": ("🟡", "rgba(255,229,122,0.15)", "rgba(255,229,122,0.35)", "#ffe57a"),
+    "Viewer":  ("🟢", "rgba(105,255,193,0.15)", "rgba(105,255,193,0.35)", "#69ffc1"),
+}
+
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
+if "role" not in st.session_state:
+    st.session_state.role = None
+if "username" not in st.session_state:
+    st.session_state.username = None
 
 if not st.session_state.authenticated:
     st.markdown("""
@@ -123,31 +163,41 @@ if not st.session_state.authenticated:
           <span style="background:rgba(76,215,246,0.10);border:1px solid rgba(76,215,246,0.22);color:#4cd7f6;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Logistic Regression</span>
           <span style="background:rgba(110,231,183,0.10);border:1px solid rgba(110,231,183,0.22);color:#6ee7b7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px;">Random Forest</span>
         </div>
+
+        <!-- Role guide -->
+        <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:left;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#7eb3ff;margin-bottom:10px;">Access Levels</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="background:rgba(255,138,128,0.15);border:1px solid rgba(255,138,128,0.35);color:#ff8a80;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Admin</span>
+              <span style="color:#cbd8ea;">Full access — all pages, audit log, model stats</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="background:rgba(255,229,122,0.15);border:1px solid rgba(255,229,122,0.35);color:#ffe57a;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Analyst</span>
+              <span style="color:#cbd8ea;">Prediction tools — contamination, queue, crime</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="background:rgba(105,255,193,0.15);border:1px solid rgba(105,255,193,0.35);color:#69ffc1;padding:2px 10px;border-radius:99px;font-weight:700;font-size:10px;">Viewer</span>
+              <span style="color:#cbd8ea;">Overview only — key findings and statistics</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 1.2, 1])
     with col2:
-        password = st.text_input("Password", type="password", placeholder="🔑  Enter access password...")
+        username = st.text_input("Username", placeholder="👤  Enter username...")
+        password = st.text_input("Password", type="password", placeholder="🔑  Enter password...")
         if st.button("🌊  Login to MIWAF", use_container_width=True):
-            if password == "miwaf2026":
+            if username in USERS and USERS[username]["password"] == password:
                 st.session_state.authenticated = True
+                st.session_state.role = USERS[username]["role"]
+                st.session_state.username = username
                 st.rerun()
             else:
-                st.error("❌ Incorrect password. Please try again.")
-    st.stop()
-
-    # Input and button centered
-    col1, col2, col3 = st.columns([1, 1.2, 1])
-    with col2:
-        password = st.text_input("Password", type="password", placeholder="🔑  Enter access password...")
-        if st.button("🌊  Login to MIWAF", use_container_width=True):
-            if password == "miwaf2026":
-                st.session_state.authenticated = True
-                st.rerun()
-            else:
-                st.error("Incorrect password. Please try again.")
+                st.error("❌ Incorrect username or password.")
     st.stop()
 # ════════════════════════════════════════════════════════════
 # DESIGN SYSTEM — GLASSMORPHIC HYDRO-INTELLIGENCE
@@ -875,21 +925,36 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     # ── MAIN NAVIGATION ──────────────────────────────────────
-    nav_options = [
-        " OVERVIEW",
-        "  CONTAMINATION PREDICTOR",
-        "  QUEUE TIME FORECASTER",
-        "  CRIME RISK SCORER",
-        "  MODEL PERFORMANCE",
-        "  CONFUSION MATRICES",
-        "  AUDIT LOG",
-    ]
+# Role-based navigation
+    nav_options = ROLE_PAGES[st.session_state.role]
 
     selected_page = st.radio(
         label="navigation",
         options=nav_options,
         label_visibility="collapsed",
     )
+
+    # Role badge + logout in sidebar
+    role = st.session_state.role
+    username = st.session_state.username
+    emoji, bg, border, color = ROLE_BADGES[role]
+    st.markdown(f"""
+    <div style="padding:10px 14px;margin-top:8px;">
+      <div style="background:{bg};border:1px solid {border};border-radius:10px;padding:10px 12px;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:{color};margin-bottom:4px;">Logged in as</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:13px;font-weight:800;color:#ffffff;">{username}</span>
+          <span style="background:{bg};border:1px solid {border};color:{color};font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;">{role}</span>
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("🚪 Logout", use_container_width=True):
+        st.session_state.authenticated = False
+        st.session_state.role = None
+        st.session_state.username = None
+        st.rerun()
 
     # ── BOTTOM FOOTER ─────────────────────────────────────────
     status_ok = models.get('status') == 'ready'
