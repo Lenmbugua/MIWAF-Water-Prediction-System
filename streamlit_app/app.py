@@ -36,22 +36,22 @@ USERS = {
 
 ROLE_PAGES = {
     "Admin":   [
-        "### OVERVIEW",
-        "###  CONTAMINATION PREDICTOR",
-        "###  QUEUE TIME FORECASTER",
-        "###  CRIME RISK SCORER",
-        "###  MODEL PERFORMANCE",
-        "###  CONFUSION MATRICES",
-        "###  AUDIT LOG",
+        " OVERVIEW",
+        "  CONTAMINATION PREDICTOR",
+        "  QUEUE TIME FORECASTER",
+        "  CRIME RISK SCORER",
+        "  MODEL PERFORMANCE",
+        "  CONFUSION MATRICES",
+        "  AUDIT LOG",
     ],
     "Analyst": [
-        "### OVERVIEW",
-        "###  CONTAMINATION PREDICTOR",
-        "###  QUEUE TIME FORECASTER",
-        "###  CRIME RISK SCORER",
+        " OVERVIEW",
+        "  CONTAMINATION PREDICTOR",
+        "  QUEUE TIME FORECASTER",
+        "  CRIME RISK SCORER",
     ],
     "Viewer":  [
-        "### OVERVIEW",
+        " OVERVIEW",
     ],
 }
 
